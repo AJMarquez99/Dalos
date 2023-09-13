@@ -1,0 +1,12 @@
+Scripts/
+share/
+db.sqlite3
+pyvenv.cfg
+Lib/
+Include/
+etc/
+pages/__pycache__
+accounts/__pycache__
+manage.py
+pages/migrations/
+accounts/migrations/

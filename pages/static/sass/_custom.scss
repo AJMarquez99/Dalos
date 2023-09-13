@@ -1,0 +1,67 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+#nav_logo img {
+    height: 100%;
+    width: auto;
+    max-height: 50px;
+}
+
+.stock-title {
+    h2, span {
+        font-size: 2rem;
+        line-height: 1;
+    }
+}
+
+.jumbotron {
+    height: 100vh;
+}
+
+.center-block-v {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-block-h {
+    display: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-toggle::after {
+    content: none!important;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: unset;
+    right: 0;
+}
+
+.registration-form {
+    @extend .w-75;
+
+    & > div {
+        @extend .mt-3;
+    }
+
+    label {
+        text-transform: capitalize;
+    }
+
+    input {
+        @extend .form-control;
+    }
+
+    span, a {
+        font-size: 0.8rem;
+    }
+}

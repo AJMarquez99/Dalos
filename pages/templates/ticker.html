@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load plotly_dash %}
+
+
+{% block header %}
+
+{% plotly_header %}
+
+{% endblock header %}
+
+{% block content %}
+<main class="container-fluid pt-5">
+    <section class="container-fluid">
+        <div class="row align-items-start px-5">
+            <div class="col-9 ps-5">
+                <div class="d-flex flex-row align-items-end mb-3 stock-title">
+                    <h2 class="my-0">{{ ticker.shortName }}</h2>
+                    <span class="ps-3 {% if ticker.currentPercentChange > 0 %}text-success{% else %}text-danger{% endif %}">${{ ticker.currentPrice|floatformat:"2g" }}</span>
+                    <span class="ps-3 {% if ticker.currentPercentChange > 0 %}text-success{% else %}text-danger{% endif %}">{% if ticker.currentPercentChange > 0 %}+{% endif %}{{ ticker.currentPercentChange|floatformat:3 }}%</span>
+                    {% if user.is_authenticated %}
+                    <a class="ps-3 fs-3 lh-1 text-dark" href=""><i class="bi bi-star"></i></a>
+                    {% else %}
+                    <a class="ps-3 fs-3 lh-1 text-dark" href="/signup"><i class="bi bi-star"></i></a>
+                    {% endif %}
+                </div>
+                <div>
+                    <span class="pe-3">High: {{ ticker.dayHigh }}</span>
+                    <span class="pe-3">Low: {{ ticker.dayLow }}</span>
+                </div>
+                <div class="{% plotly_class name=dashApp %}">
+                    {% plotly_app name=dashApp ratio=1 %}
+                </div>
+                <div>
+                    {{ ticker.longBusinessSummary }}
+                </div>
+            </div>
+            <div class="col-3">
+                {% if ticker.hasLocation %}
+                <div class="mb-3">
+                    <h5>Location</h5>
+                    {{ ticker.location }}
+                </div>
+                {% endif %}
+                {% if ticker.fullTimeEmployees %}
+                <div class="mb-3">
+                    <h5>Employees</h5>
+                    {{ ticker.fullTimeEmployees|floatformat:"g" }}
+                </div>
+                {% endif %}
+                {% if ticker.marketCap %}
+                <div class="mb-3">
+                    <h5>Market Cap</h5>
+                    ${{ ticker.marketCap|floatformat:"g" }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block footer %}
+
+{% plotly_footer %}
+
+{% endblock footer %}
