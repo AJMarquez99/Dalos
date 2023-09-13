@@ -37,6 +37,11 @@ class TickerPageView(TemplateView):
         dash_context['django_to_dash_context'] = "I am Dash recieving context from Django"
         request.session['django_plotly_dash'] = dash_context
         return super().setup(request, *args, **kwargs)
+    
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("lazy")
+    template_name = "registration/signup.html"
 
 def search_bar(request):
   response = HttpResponse(status=302)
