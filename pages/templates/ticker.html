@@ -25,11 +25,11 @@
                     {% endif %}
                 </div>
                 <div>
-                    <span class="pe-3">High: {{ ticker.dayHigh }}</span>
-                    <span class="pe-3">Low: {{ ticker.dayLow }}</span>
+                    <span class="pe-3">High: ${{ ticker.dayHigh|floatformat:2 }}</span>
+                    <span class="pe-3">Low: ${{ ticker.dayLow|floatformat:2 }}</span>
                 </div>
-                <div class="{% plotly_class name=dashApp %}">
-                    {% plotly_app name=dashApp ratio=1 %}
+                <div class="{% plotly_class name=dashApp template_type="div-direct" %}">
+                    {% plotly_direct name=dashApp %}
                 </div>
                 <div>
                     {{ ticker.longBusinessSummary }}

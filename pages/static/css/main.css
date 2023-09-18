@@ -9033,6 +9033,7 @@ body {
   height: 100%;
   width: auto;
   max-height: 50px;
+  padding: 7px 0;
 }
 
 .stock-title h2, .stock-title .h2, .stock-title span {
@@ -9072,6 +9073,18 @@ body {
 }
 .registration-form span, .registration-form a {
   font-size: 0.8rem;
+}
+
+.django-plotly-dash-direct svg:first-child {
+  background-color: #FFFBFE !important;
+}
+
+#ticker_graph {
+  margin-left: -80px;
+}
+
+.bg-light .btn-check:checked + .btn {
+  color: #FFFBFE;
 }
 
 /*# sourceMappingURL=main.css.map */

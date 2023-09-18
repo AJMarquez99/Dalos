@@ -43,6 +43,9 @@ class SignUpView(CreateView):
     success_url = reverse_lazy("lazy")
     template_name = "registration/signup.html"
 
+class ProfileView(TemplateView):
+    template_name = "profile.html"
+
 def search_bar(request):
   response = HttpResponse(status=302)
   ticker = request.GET['search']
