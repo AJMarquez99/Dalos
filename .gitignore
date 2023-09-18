@@ -6,7 +6,7 @@ Lib/
 Include/
 etc/
 pages/__pycache__
-accounts/__pycache__
+dalos/__pycache__
 manage.py
 pages/migrations/
 accounts/migrations/

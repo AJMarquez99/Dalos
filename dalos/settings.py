@@ -48,8 +48,9 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_plotly_dash.middleware.BaseMiddleware',
+    'django_plotly_dash.middleware.ExternalRedirectionMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'dalos.urls'
@@ -131,3 +132,9 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+PLOTLY_COMPONENTS = [
+    'dash_bootstrap_components',
+    'dpd_components',
+    'dpd_static_support',
+]
