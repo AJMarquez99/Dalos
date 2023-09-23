@@ -31,7 +31,8 @@ class TickerPageView(TemplateView):
                 "dashApp": ticker.symbol + 'App'}
     
     def setup(self, request: HttpRequest, *args: Any, **kwargs: Any) -> None:
-        createStockDash(yf.Ticker(kwargs["ticker"]))
+        request.user.is_authenticated
+        createStockDash(yf.Ticker(kwargs["ticker"]), request.user.is_authenticated)
 
         dash_context = request.session.get("django_plotly_dash", dict())
         dash_context['django_to_dash_context'] = "I am Dash recieving context from Django"
@@ -49,8 +50,6 @@ class ProfileView(TemplateView):
 def search_bar(request):
   response = HttpResponse(status=302)
   ticker = request.GET['search']
-
-  print("here")
 
   if len(yf.Ticker(ticker).history(period='7d')) > 0:
       response['Location'] = '/ticker/' + ticker

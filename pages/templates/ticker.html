@@ -14,20 +14,6 @@
     <section class="container-fluid">
         <div class="row align-items-start px-5">
             <div class="col-9 ps-5">
-                <div class="d-flex flex-row align-items-end mb-3 stock-title">
-                    <h2 class="my-0">{{ ticker.shortName }}</h2>
-                    <span class="ps-3 {% if ticker.currentPercentChange > 0 %}text-success{% else %}text-danger{% endif %}">${{ ticker.currentPrice|floatformat:"2g" }}</span>
-                    <span class="ps-3 {% if ticker.currentPercentChange > 0 %}text-success{% else %}text-danger{% endif %}">{% if ticker.currentPercentChange > 0 %}+{% endif %}{{ ticker.currentPercentChange|floatformat:3 }}%</span>
-                    {% if user.is_authenticated %}
-                    <a class="ps-3 fs-3 lh-1 text-dark" href=""><i class="bi bi-star"></i></a>
-                    {% else %}
-                    <a class="ps-3 fs-3 lh-1 text-dark" href="/signup"><i class="bi bi-star"></i></a>
-                    {% endif %}
-                </div>
-                <div>
-                    <span class="pe-3">High: ${{ ticker.dayHigh|floatformat:2 }}</span>
-                    <span class="pe-3">Low: ${{ ticker.dayLow|floatformat:2 }}</span>
-                </div>
                 <div class="{% plotly_class name=dashApp template_type="div-direct" %}">
                     {% plotly_direct name=dashApp %}
                 </div>
@@ -60,7 +46,7 @@
 </main>
 {% endblock content %}
 
-{% block footer %}
+{% block footer %} 
 
 {% plotly_footer %}
 
