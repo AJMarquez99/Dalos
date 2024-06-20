@@ -5,8 +5,8 @@ pyvenv.cfg
 Lib/
 Include/
 etc/
-pages/__pycache__
-dalos/__pycache__
+pages/__pycache__/
+dalos/__pycache__/
 manage.py
 pages/migrations/
 accounts/migrations/

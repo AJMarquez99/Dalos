@@ -26,13 +26,13 @@ class TickerPageView(TemplateView):
     template_name = "ticker.html"
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        ticker = StockPage(yf.Ticker(self.kwargs["ticker"]))
-        return {"ticker" : ticker,
-                "dashApp": ticker.symbol + 'App'}
+        ticker = StockPage(self.kwargs["ticker"])
+        return {"ticker" : ticker.info,
+                "dashApp": ticker.stockInfo.symbol + 'App'}
     
     def setup(self, request: HttpRequest, *args: Any, **kwargs: Any) -> None:
         request.user.is_authenticated
-        createStockDash(yf.Ticker(kwargs["ticker"]), request.user.is_authenticated)
+        createStockDash(kwargs["ticker"], request.user.is_authenticated)
 
         dash_context = request.session.get("django_plotly_dash", dict())
         dash_context['django_to_dash_context'] = "I am Dash recieving context from Django"
