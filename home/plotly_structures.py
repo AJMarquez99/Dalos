@@ -50,32 +50,33 @@ def getGraphDateRangeHTML(id: str, initial_value: str = "1d") -> dcc.RadioItems:
         id=id,
         options=[
             {
-                "label": html.Label(["1D"], className=button_class), 
+                "label": "1D",  
                 "value": "1d"
             },
             {
-                "label": html.Label(["1W"], className=button_class), 
+                "label": "1W", 
                 "value": "1wk"
             },
             {
-                "label": html.Label(["1M"], className=button_class), 
+                "label": "1M", 
                 "value": "1mo"
             },
             {
-                "label": html.Label(["3M"], className=button_class), 
+                "label": "3M", 
                 "value": "3mo"
             },
             {
-                "label": html.Label(["1Y"], className=button_class), 
+                "label": "1Y", 
                 "value": "1y"
             },
             {
-                "label": html.Label(["5Y"], className=button_class), 
+                "label": "5Y", 
                 "value": "5y"
             },
         ],
         inline=True,
         inputClassName="visually-hidden btn-check",
+        labelClassName="btn btn-outline-primary me-3 pe-none",
         className="mb-3",
         value=initial_value,
     )
@@ -148,6 +149,8 @@ def getStandardStockFigure(df: DataFrame, in_minutes: bool, range_breaks: List, 
         yaxis_title="",
         legend_title="",
         hovermode="x",
+        paper_bgcolor="rgb(244, 247, 250)",
+        plot_bgcolor="rgb(244, 247, 250)",
     )
     fig.update_xaxes(
         dtick=1000*60*60 if in_minutes else "M1",
