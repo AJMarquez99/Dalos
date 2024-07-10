@@ -20,6 +20,7 @@ from rest_framework.authtoken.views import obtain_auth_token # <-- NEW
 urlpatterns = [
     path('', include('home.urls')),
     path("admin/", admin.site.urls),
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path("", include('admin_datta.urls')),
     path('', include('django_dyn_dt.urls')), # <-- NEW: Dynamic_DT Routing   
 ]

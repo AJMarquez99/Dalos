@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load plotly_dash %}
+
+{% block extrahead %}
+
+{% plotly_header %}
+
+{% endblock extrahead %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        Test - {{ stock.shortName }}
+    </div>
+    <div class="col-9 ps-5">
+        <div class="{% plotly_class name=dashApp template_type="div-direct" %}">
+            {% plotly_direct name=dashApp %}
+        </div>
+        <div>
+            {{ ticker.longBusinessSummary }}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block extra_js %}
+
+{% plotly_footer %}
+
+{% endblock extra_js %}

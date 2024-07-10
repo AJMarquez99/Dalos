@@ -15,6 +15,21 @@ django-debug-toolbar==4.2.0
 whitenoise==6.6.0
 gunicorn==21.2.0
 
+#Dash Plotly
+dash==2.9.3
+dash-bootstrap-components==1.5.0
+dash-core-components==2.0.0
+dash-html-components==2.0.0
+plotly==5.16.1
+django-plotly-dash==2.2.2
+
 # DB Layer
 # psycopg2-binary
 # mysqlclient
+
+# Market Data
+yfinance==0.2.37
+
+# Dataset Manipulation
+numpy==1.25.2
+pandas==2.1.0
